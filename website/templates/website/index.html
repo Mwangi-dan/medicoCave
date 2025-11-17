@@ -1,0 +1,475 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<!-- Navigation Bar - Fixed/Sticky, Mobile-First -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300" role="navigation" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 md:h-20">
+            <!-- Logo/Brand Name - Links to Home/Top -->
+            <div class="flex-shrink-0">
+                <a href="#home" class="text-2xl md:text-3xl font-bold text-medico hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-medico focus:ring-offset-2 rounded" aria-label="MedicoCave Home">
+                    MedicoCave
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
+                <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-medico transition-colors px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-medico">Features</a>
+                <a href="#how-it-works" class="text-gray-700 dark:text-gray-300 hover:text-medico transition-colors px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-medico">How It Works</a>
+                <a href="#why-choose-us" class="text-gray-700 dark:text-gray-300 hover:text-medico transition-colors px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-medico">Why Choose Us</a>
+                <a href="#faq" class="text-gray-700 dark:text-gray-300 hover:text-medico transition-colors px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-medico">FAQ</a>
+                
+                <!-- Primary CTA Button - Desktop -->
+                <a href="#download" class="bg-medico hover:bg-opacity-90 text-white font-semibold py-2.5 px-6 rounded-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-medico focus:ring-offset-2 shadow-lg">
+                    Download the App
+                </a>
+                
+                <!-- Light/Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-medico transition-colors" aria-label="Toggle dark mode">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center space-x-3">
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-medico transition-colors" aria-label="Toggle dark mode">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                </button>
+                <button id="mobile-menu-button" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-medico transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+            <a href="#features" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md text-base font-medium transition-colors">Features</a>
+            <a href="#how-it-works" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md text-base font-medium transition-colors">How It Works</a>
+            <a href="#why-choose-us" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md text-base font-medium transition-colors">Why Choose Us</a>
+            <a href="#faq" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md text-base font-medium transition-colors">FAQ</a>
+            <a href="#download" class="block mt-4 bg-medico hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg text-center transition-all">Download the App</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section - Above the Fold, Mobile-First -->
+<section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center" aria-label="Hero section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Hero Content -->
+            <div class="text-center lg:text-left">
+                <!-- Main H1 - SEO Optimized -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                    <span class="text-medico">MedicoCave:</span><br>
+                    Connect with Top Doctors.<br>
+                    Your Health, Simplified.
+                </h1>
+                
+                <!-- Value Proposition -->
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    Find trusted medical professionals, book consultations instantly, and manage your health records securely—all in one convenient app.
+                </p>
+                
+                <!-- Primary CTA Button - Most Prominent Element -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#download" class="bg-medico hover:bg-opacity-90 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-medico focus:ring-offset-2 text-center">
+                        Download the App
+                    </a>
+                    <a href="#how-it-works" class="bg-white dark:bg-gray-800 border-2 border-medico text-medico font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg focus:outline-none focus:ring-4 focus:ring-medico focus:ring-offset-2 text-center">
+                        Learn More
+                    </a>
+                </div>
+                
+                <!-- Social Proof - Trust Indicators -->
+                <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 dark:text-gray-400">
+                    <div class="flex items-center">
+                        <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                        <span>5.0 Star Ratings</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-medico text-xl mr-2">👥</span>
+                        <span>10k+ Patients Served</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image/Mockup - Responsive -->
+            <div class="flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-md lg:max-w-lg">
+                    <!-- App Mockup Placeholder - Replace with actual app screenshot -->
+                    <div class="bg-gradient-to-br from-medico to-teal-600 rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
+                            <div class="space-y-4">
+                                <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                                <div class="h-32 bg-medico bg-opacity-20 rounded-lg flex items-center justify-center">
+                                    <span class="text-6xl">🏥</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                                    <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alt text for accessibility -->
+                    <span class="sr-only">MedicoCave mobile app interface showing doctor profiles and consultation booking</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section - SEO Optimized with H2 -->
+<section id="features" class="py-16 md:py-24 bg-white dark:bg-gray-900" aria-label="Features section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                Powerful Features for <span class="text-medico">Your Health</span>
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Everything you need to manage your healthcare journey in one convenient app.
+            </p>
+        </div>
+        
+        <!-- Features Grid - Mobile-First Responsive -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Feature 1: Find Specialists -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-medico">
+                <div class="w-14 h-14 bg-medico bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-3xl">🔍</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Find Specialists</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Search for neurologists, general physicians, and specialists by specialty, location, and availability.
+                </p>
+            </div>
+            
+            <!-- Feature 2: Doctor Profiles -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-medico">
+                <div class="w-14 h-14 bg-medico bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-3xl">👨‍⚕️</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">View Doctor Profiles</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Access detailed profiles with ratings, reviews, qualifications, and real-time availability.
+                </p>
+            </div>
+            
+            <!-- Feature 3: Secure Records -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-medico">
+                <div class="w-14 h-14 bg-medico bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-3xl">🔒</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Secure Patient Records</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Store and manage your medical history, prescriptions, and test results with bank-level encryption.
+                </p>
+            </div>
+            
+            <!-- Feature 4: Easy Booking -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-medico">
+                <div class="w-14 h-14 bg-medico bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-3xl">📅</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Easy Booking</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Book consultations instantly with flexible scheduling and instant confirmation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section - SEO Optimized with H2 -->
+<section id="how-it-works" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800" aria-label="How it works section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                How It <span class="text-medico">Works</span>
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Get started in three simple steps and connect with healthcare professionals in minutes.
+            </p>
+        </div>
+        
+        <!-- Steps - Mobile-First Responsive -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <!-- Step 1 -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-medico text-white rounded-full text-3xl font-bold mb-6 shadow-lg">
+                    1
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Search for a Doctor</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Browse our extensive directory of verified medical professionals. Filter by specialty, location, ratings, and availability to find the perfect match for your needs.
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-medico text-white rounded-full text-3xl font-bold mb-6 shadow-lg">
+                    2
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Book a Consultation</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Select your preferred date and time from available slots. Complete your booking with secure payment processing and receive instant confirmation.
+                </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-medico text-white rounded-full text-3xl font-bold mb-6 shadow-lg">
+                    3
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Get Expert Medical Advice</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Attend your consultation via video call or in-person. Receive expert medical advice, prescriptions, and follow-up care recommendations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us / Trust & Authority Section - SEO Optimized with H2 -->
+<section id="why-choose-us" class="py-16 md:py-24 bg-white dark:bg-gray-900" aria-label="Why choose us section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                Why Choose <span class="text-medico">MedicoCave</span>
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Trusted by thousands of patients for secure, reliable, and convenient healthcare access.
+            </p>
+        </div>
+        
+        <!-- Trust Points Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">🔐 Bank-Level Security</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Your health data is protected with end-to-end encryption and HIPAA-compliant security measures.
+                </p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">✅ Verified Professionals</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    All doctors are verified, licensed, and continuously monitored to ensure the highest quality care.
+                </p>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">⚡ 24/7 Support</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Get help whenever you need it with our round-the-clock customer support team.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Social Proof Stats -->
+        <div class="bg-gradient-to-r from-medico to-teal-600 rounded-2xl p-8 md:p-12 text-white text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">5.0</div>
+                    <div class="text-lg md:text-xl opacity-90">Star Ratings</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">10k+</div>
+                    <div class="text-lg md:text-xl opacity-90">Patients Served</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                    <div class="text-lg md:text-xl opacity-90">Verified Doctors</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section - SEO Optimized with H2 and Accordion -->
+<section id="faq" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800" aria-label="Frequently asked questions">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                Frequently Asked <span class="text-medico">Questions</span>
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300">
+                Everything you need to know about MedicoCave.
+            </p>
+        </div>
+        
+        <!-- FAQ Accordion - Accessible -->
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-medico" aria-expanded="false" aria-controls="faq-answer-1">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white pr-4">Is my data secure?</h3>
+                    <svg class="w-6 h-6 text-medico flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="faq-answer-1" class="hidden px-6 pb-6">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes, absolutely. MedicoCave uses bank-level encryption and follows HIPAA compliance standards to protect your personal health information. All data is stored securely and only accessible to you and your authorized healthcare providers.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-medico" aria-expanded="false" aria-controls="faq-answer-2">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white pr-4">How do I pay for a consultation?</h3>
+                    <svg class="w-6 h-6 text-medico flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="faq-answer-2" class="hidden px-6 pb-6">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        You can pay securely through the app using credit cards, debit cards, or digital wallets. All payments are processed through our secure payment gateway. You'll receive a receipt immediately after payment.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-medico" aria-expanded="false" aria-controls="faq-answer-3">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white pr-4">Is the app free to download?</h3>
+                    <svg class="w-6 h-6 text-medico flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="faq-answer-3" class="hidden px-6 pb-6">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes, the MedicoCave app is completely free to download from the App Store (iOS) and Google Play Store (Android). There are no subscription fees. You only pay for the consultations you book with healthcare professionals.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 - Additional for better SEO -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden">
+                <button class="faq-toggle w-full text-left p-6 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-medico" aria-expanded="false" aria-controls="faq-answer-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white pr-4">Can I book consultations for family members?</h3>
+                    <svg class="w-6 h-6 text-medico flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="faq-answer-4" class="hidden px-6 pb-6">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes, you can manage multiple profiles within your account. This allows you to book consultations for yourself and your family members, making it easy to manage everyone's healthcare needs from one place.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download CTA Section -->
+<section id="download" class="py-16 md:py-24 bg-gradient-to-r from-medico to-teal-600 text-white" aria-label="Download section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+        <p class="text-xl mb-8 opacity-90">Download MedicoCave today and take control of your health.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#" class="bg-white text-medico font-bold py-4 px-8 rounded-lg text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-2 focus:ring-offset-medico" aria-label="Download on App Store">
+                📱 Download for iOS
+            </a>
+            <a href="#" class="bg-white text-medico font-bold py-4 px-8 rounded-lg text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-2 focus:ring-offset-medico" aria-label="Download on Google Play">
+                🤖 Download for Android
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-gray-300 py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Logo and Company Info -->
+            <div>
+                <h3 class="text-2xl font-bold text-medico mb-4">MedicoCave</h3>
+                <p class="text-gray-400 mb-4">
+                    Connecting patients with trusted medical professionals. Your health, simplified.
+                </p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="hover:text-medico transition-colors">Features</a></li>
+                    <li><a href="#how-it-works" class="hover:text-medico transition-colors">How It Works</a></li>
+                    <li><a href="#why-choose-us" class="hover:text-medico transition-colors">Why Choose Us</a></li>
+                    <li><a href="#faq" class="hover:text-medico transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <!-- Legal Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-medico transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-medico transition-colors">Privacy Policy</a></li>
+                </ul>
+                <!-- Secondary Download CTA -->
+                <a href="#download" class="mt-6 inline-block bg-medico hover:bg-opacity-90 text-white font-semibold py-2.5 px-6 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-medico focus:ring-offset-2 focus:ring-offset-gray-900">
+                    Download the App
+                </a>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <p>&copy; {% now "Y" %} MedicoCave. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- FAQ Accordion JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const answer = document.getElementById(this.getAttribute('aria-controls'));
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                const icon = this.querySelector('svg');
+                
+                // Toggle answer visibility
+                if (isExpanded) {
+                    answer.classList.add('hidden');
+                    this.setAttribute('aria-expanded', 'false');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Close all other FAQs
+                    faqToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherAnswer = document.getElementById(otherToggle.getAttribute('aria-controls'));
+                            const otherIcon = otherToggle.querySelector('svg');
+                            otherAnswer.classList.add('hidden');
+                            otherToggle.setAttribute('aria-expanded', 'false');
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    answer.classList.remove('hidden');
+                    this.setAttribute('aria-expanded', 'true');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+

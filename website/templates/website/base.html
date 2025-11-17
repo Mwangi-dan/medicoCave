@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Dynamic SEO Title and Description -->
+    <title>{% block title %}{{ page_title|default:"MedicoCave: Connect with Top Doctors. Your Health, Simplified." }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ meta_description|default:"MedicoCave connects patients with trusted medical professionals. Find specialists, book consultations, and manage your health records securely." }}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}{{ meta_keywords|default:"medical app, doctor consultation, healthcare, patient portal, medical professionals, health app" }}{% endblock %}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}MedicoCave: Connect with Top Doctors{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Your Health, Simplified. Connect with trusted medical professionals.{% endblock %}">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}MedicoCave: Connect with Top Doctors{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Your Health, Simplified. Connect with trusted medical professionals.{% endblock %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    
+    <!-- Tailwind CSS CDN - Mobile-first utility framework -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration for Accent Color #01BFA8 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'medico': '#01BFA8', // Main accent color: rgb(1, 191, 168)
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for Dark/Light Mode and Additional Styling -->
+    <style>
+        /* Custom accent color utilities */
+        .text-medico { color: #01BFA8; }
+        .bg-medico { background-color: #01BFA8; }
+        .border-medico { border-color: #01BFA8; }
+        
+        /* Smooth transitions for dark mode */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Accessibility: Ensure good contrast ratios */
+        .dark .text-gray-300 {
+            color: #d1d5db; /* WCAG AA compliant */
+        }
+        
+        /* Mobile-first: Large touch targets (minimum 44x44px) */
+        button, a.button {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus states for accessibility */
+        *:focus-visible {
+            outline: 2px solid #01BFA8;
+            outline-offset: 2px;
+        }
+    </style>
+    
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "MedicoCave",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "iOS, Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "1250"
+        },
+        "description": "Connect with trusted medical professionals. Find specialists, book consultations, and manage your health records securely."
+    }
+    </script>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
+    {% block content %}{% endblock %}
+    
+    <!-- JavaScript for Dark/Light Mode Toggle and Mobile Menu -->
+    <script>
+        // Dark/Light Mode Toggle with localStorage persistence
+        (function() {
+            // Check for saved theme preference or default to light mode
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Apply theme
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Theme toggle function
+            function toggleTheme() {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                
+                // Update toggle button icon
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('svg');
+                    if (isDark) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />';
+                    }
+                }
+            }
+            
+            // Attach toggle to button when DOM is ready
+            document.addEventListener('DOMContentLoaded', function() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', toggleTheme);
+                }
+            });
+        })();
+        
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    // Toggle aria-expanded for accessibility
+                    const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+                    mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+
