@@ -93,6 +93,23 @@ medicocave/
 
 ## Customization
 
+### Configure WhatsApp Chat Widget
+
+The website includes a WhatsApp chat widget (floating button in bottom-right corner). To enable it:
+
+1. **Local Development**: Set the environment variable:
+   ```bash
+   export WHATSAPP_PHONE_NUMBER="1234567890"  # Your WhatsApp Business number
+   ```
+   Format: country code + number, no + or spaces (e.g., `1234567890` for US +1 (234) 567-890)
+
+2. **Production (Render)**: 
+   - In Render dashboard, go to your service → Environment
+   - Add environment variable: `WHATSAPP_PHONE_NUMBER` with your phone number
+   - Or update `render.yaml` and set the value in the `envVars` section
+
+The widget will only appear if `WHATSAPP_PHONE_NUMBER` is set.
+
 ### Update App Store Links
 
 Edit the download buttons in `index.html` (search for "Download for iOS" and "Download for Android") and replace the `href="#"` with your actual app store URLs.

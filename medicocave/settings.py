@@ -49,6 +49,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'website.context_processors.whatsapp_phone',
             ],
         },
     },
@@ -82,4 +83,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# WhatsApp Business Phone Number (format: country code + number, no + or spaces)
+# Example: 1234567890 for US number +1 (234) 567-890
+WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '')
 

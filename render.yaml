@@ -12,4 +12,7 @@ services:
         generateValue: true
       - key: DEBUG
         value: "False"
+      - key: WHATSAPP_PHONE_NUMBER
+        value: "254725899912"  # Set your WhatsApp Business number here (format: country code + number, no + or spaces)
+        # Example: "1234567890" for US number +1 (234) 567-890
 
