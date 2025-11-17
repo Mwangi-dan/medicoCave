@@ -6,9 +6,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 md:h-20">
             <!-- Logo/Brand Name - Links to Home/Top -->
-            <div class="flex-shrink-0">
-                <a href="#home" class="text-2xl md:text-3xl font-bold text-medico hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-medico focus:ring-offset-2 rounded" aria-label="MedicoCave Home">
-                    MedicoCave
+            <div class="flex-shrink-0 flex items-center space-x-2">
+                {% load static %}
+                <a href="#home" class="flex items-center space-x-2 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-medico focus:ring-offset-2 rounded" aria-label="MedicoCave Home">
+                    <img src="{% static 'logo.svg' %}" alt="MedicoCave Logo" class="h-8 w-8 md:h-10 md:w-10">
+                    <span class="text-2xl md:text-3xl font-bold text-medico">MedicoCave</span>
                 </a>
             </div>
             
@@ -88,17 +90,6 @@
                     </a>
                 </div>
                 
-                <!-- Social Proof - Trust Indicators -->
-                <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 dark:text-gray-400">
-                    <div class="flex items-center">
-                        <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                        <span>5.0 Star Ratings</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-medico text-xl mr-2">👥</span>
-                        <span>10k+ Patients Served</span>
-                    </div>
-                </div>
             </div>
             
             <!-- Hero Image/Mockup - Responsive -->
@@ -249,7 +240,7 @@
                 Why Choose <span class="text-medico">MedicoCave</span>
             </h2>
             <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Trusted by thousands of patients for secure, reliable, and convenient healthcare access.
+                Your trusted partner for secure, reliable, and convenient healthcare access.
             </p>
         </div>
         
@@ -279,15 +270,7 @@
         
         <!-- Social Proof Stats -->
         <div class="bg-gradient-to-r from-medico to-teal-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="text-4xl md:text-5xl font-bold mb-2">5.0</div>
-                    <div class="text-lg md:text-xl opacity-90">Star Ratings</div>
-                </div>
-                <div>
-                    <div class="text-4xl md:text-5xl font-bold mb-2">10k+</div>
-                    <div class="text-lg md:text-xl opacity-90">Patients Served</div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
                 <div>
                     <div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
                     <div class="text-lg md:text-xl opacity-90">Verified Doctors</div>
@@ -320,7 +303,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="faq-answer-1" class="hidden px-6 pb-6">
+                <div id="faq-answer-1" class="hidden px-8 md:px-10 pb-8 md:pb-10">
                     <p class="text-gray-600 dark:text-gray-300">
                         Yes, absolutely. MedicoCave uses bank-level encryption and follows HIPAA compliance standards to protect your personal health information. All data is stored securely and only accessible to you and your authorized healthcare providers.
                     </p>
@@ -335,7 +318,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="faq-answer-2" class="hidden px-6 pb-6">
+                <div id="faq-answer-2" class="hidden px-8 md:px-10 pb-8 md:pb-10">
                     <p class="text-gray-600 dark:text-gray-300">
                         You can pay securely through the app using credit cards, debit cards, or digital wallets. All payments are processed through our secure payment gateway. You'll receive a receipt immediately after payment.
                     </p>
@@ -350,7 +333,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="faq-answer-3" class="hidden px-6 pb-6">
+                <div id="faq-answer-3" class="hidden px-8 md:px-10 pb-8 md:pb-10">
                     <p class="text-gray-600 dark:text-gray-300">
                         Yes, the MedicoCave app is completely free to download from the App Store (iOS) and Google Play Store (Android). There are no subscription fees. You only pay for the consultations you book with healthcare professionals.
                     </p>
@@ -365,7 +348,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="faq-answer-4" class="hidden px-6 pb-6">
+                <div id="faq-answer-4" class="hidden px-8 md:px-10 pb-8 md:pb-10">
                     <p class="text-gray-600 dark:text-gray-300">
                         Yes, you can manage multiple profiles within your account. This allows you to book consultations for yourself and your family members, making it easy to manage everyone's healthcare needs from one place.
                     </p>
@@ -397,7 +380,11 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <!-- Logo and Company Info -->
             <div>
-                <h3 class="text-2xl font-bold text-medico mb-4">MedicoCave</h3>
+                <div class="flex items-center space-x-2 mb-4">
+                    {% load static %}
+                    <img src="{% static 'logo.svg' %}" alt="MedicoCave Logo" class="h-8 w-8">
+                    <h3 class="text-2xl font-bold text-medico">MedicoCave</h3>
+                </div>
                 <p class="text-gray-400 mb-4">
                     Connecting patients with trusted medical professionals. Your health, simplified.
                 </p>

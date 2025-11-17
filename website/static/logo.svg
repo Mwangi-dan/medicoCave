@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Stethoscope Logo - MedicoCave -->
+  <!-- Ear tubes (curving upward and outward) -->
+  <path d="M 30 25 Q 32 18, 38 20 Q 42 22, 40 30" stroke="#01BFA8" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 70 25 Q 68 18, 62 20 Q 58 22, 60 30" stroke="#01BFA8" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Central vertical stem -->
+  <path d="M 40 30 L 50 30 L 50 58" stroke="#01BFA8" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 60 30 L 50 30" stroke="#01BFA8" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Curved tube extending down and looping to chest piece -->
+  <path d="M 50 58 Q 42 65, 30 75 Q 18 82, 15 88" stroke="#01BFA8" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Chest piece (diaphragm/bell) - solid filled circle -->
+  <circle cx="15" cy="88" r="14" fill="#01BFA8"/>
+  <circle cx="15" cy="88" r="9" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+</svg>
+

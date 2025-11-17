@@ -21,8 +21,9 @@
     <meta name="twitter:title" content="{% block twitter_title %}MedicoCave: Connect with Top Doctors{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Your Health, Simplified. Connect with trusted medical professionals.{% endblock %}">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <!-- Favicon - Stethoscope Logo -->
+    {% load static %}
+    <link rel="icon" type="image/svg+xml" href="{% static 'logo.svg' %}">
     
     <!-- Tailwind CSS CDN - Mobile-first utility framework -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -88,11 +89,6 @@
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "ratingCount": "1250"
         },
         "description": "Connect with trusted medical professionals. Find specialists, book consultations, and manage your health records securely."
     }
