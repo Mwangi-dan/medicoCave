@@ -26,17 +26,29 @@ A high-performing, SEO-optimized, mobile-first marketing website for the MedicoC
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install Django
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Run Migrations (Optional - for future database features)
+### 2. Configure Environment Variables
+
+Create a `.env` file in the project root (copy from `.env.example`):
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and set your configuration:
+- `WHATSAPP_PHONE_NUMBER`: Your WhatsApp Business number (format: country code + number, no + or spaces)
+  - Example: `254725899912` for Kenya number +254 725 899912
+
+### 3. Run Migrations (Optional - for future database features)
 
 ```bash
 python manage.py migrate
 ```
 
-### 3. Run the Development Server
+### 4. Run the Development Server
 
 ```bash
 python manage.py runserver
@@ -97,11 +109,10 @@ medicocave/
 
 The website includes a WhatsApp chat widget (floating button in bottom-right corner). To enable it:
 
-1. **Local Development**: Set the environment variable:
-   ```bash
-   export WHATSAPP_PHONE_NUMBER="1234567890"  # Your WhatsApp Business number
-   ```
-   Format: country code + number, no + or spaces (e.g., `1234567890` for US +1 (234) 567-890)
+1. **Local Development**: 
+   - Edit the `.env` file and set `WHATSAPP_PHONE_NUMBER=your_phone_number`
+   - Format: country code + number, no + or spaces (e.g., `254725899912` for Kenya +254 725 899912)
+   - The `.env` file is automatically loaded when Django starts
 
 2. **Production (Render)**: 
    - In Render dashboard, go to your service → Environment

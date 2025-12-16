@@ -4,7 +4,6 @@ Views for MedicoCave website.
 Simple view for the marketing landing page.
 """
 from django.shortcuts import render
-from django.conf import settings
 
 
 def index(request):
@@ -17,7 +16,6 @@ def index(request):
         'page_title': 'MedicoCave: Connect with Top Doctors. Your Health, Simplified.',
         'meta_description': 'MedicoCave connects patients with trusted medical professionals. Find specialists, book consultations, and manage your health records securely. Download the app today.',
         'meta_keywords': 'medical app, doctor consultation, healthcare, patient portal, medical professionals, health app',
-        'whatsapp_phone': settings.WHATSAPP_PHONE_NUMBER,
     }
     return render(request, 'website/index.html', context)
 

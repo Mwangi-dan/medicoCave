@@ -6,6 +6,10 @@ Minimal configuration for an informational marketing website.
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,5 +90,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # WhatsApp Business Phone Number (format: country code + number, no + or spaces)
 # Example: 1234567890 for US number +1 (234) 567-890
+# Load from .env file or environment variable
 WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '')
 
