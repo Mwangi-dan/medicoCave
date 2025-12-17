@@ -24,7 +24,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key-change-in-pro
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow all hosts in development, use environment variable in production
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+# Default includes medicocave.co.ke for production
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'medicocave.co.ke,www.medicocave.co.ke,localhost,127.0.0.1').split(',')
 
 
 # Application definition
