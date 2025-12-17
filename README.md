@@ -111,7 +111,7 @@ The website includes a WhatsApp chat widget (floating button in bottom-right cor
 
 1. **Local Development**: 
    - Edit the `.env` file and set `WHATSAPP_PHONE_NUMBER=your_phone_number`
-   - Format: country code + number, no + or spaces (e.g., `254725899912` for Kenya +254 725 899912)
+   - Format: country code + number, no + or spaces 
    - The `.env` file is automatically loaded when Django starts
 
 2. **Production (Render)**: 
