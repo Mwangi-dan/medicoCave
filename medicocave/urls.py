@@ -11,5 +11,7 @@ from website import views
 urlpatterns = [
     # Homepage - SEO-optimized clean URL
     path('', views.index, name='index'),
+    # Contact page
+    path('contacts/', views.contacts, name='contacts'),
 ]
 

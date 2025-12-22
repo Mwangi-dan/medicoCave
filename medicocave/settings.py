@@ -20,8 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dev-key-change-in-production-12345')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Use environment variable in production
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+# Use environment variable in production, default to False for production
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Allow all hosts in development, use environment variable in production
 # Default includes medicocave.co.ke for production
@@ -55,6 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'website.context_processors.whatsapp_phone',
+                'website.context_processors.contact_info',
             ],
         },
     },
@@ -93,4 +94,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Example: 1234567890 for US number +1 (234) 567-890
 # Load from .env file or environment variable
 WHATSAPP_PHONE_NUMBER = os.environ.get('WHATSAPP_PHONE_NUMBER', '')
+
+# Contact Information
+CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', 'info@medicocave.co.ke')
+CONTACT_PHONE = os.environ.get('CONTACT_PHONE', '+254798505071')
+CONTACT_INSTAGRAM = os.environ.get('CONTACT_INSTAGRAM', 'https://instagram.com/medicocave')
+CONTACT_FACEBOOK = os.environ.get('CONTACT_FACEBOOK', 'https://facebook.com/medicocave')
+CONTACT_TWITTER = os.environ.get('CONTACT_TWITTER', 'https://twitter.com/medicocave')
 

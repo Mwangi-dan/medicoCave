@@ -19,3 +19,15 @@ def index(request):
     }
     return render(request, 'website/index.html', context)
 
+
+def contacts(request):
+    """
+    Contact page view - Display contact information and social media links.
+    """
+    context = {
+        'page_title': 'Contact Us - MedicoCave',
+        'meta_description': 'Get in touch with MedicoCave. Contact us via email, phone, or social media. We\'re here to help with your healthcare needs.',
+        'meta_keywords': 'contact MedicoCave, healthcare support, medical app support, customer service',
+    }
+    return render(request, 'website/contacts.html', context)
+
